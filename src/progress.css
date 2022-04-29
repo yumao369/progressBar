@@ -1,0 +1,60 @@
+.progress-wrapper {
+  width: 334px;
+  height: 16px;
+  background: #f1f1f1;
+  border: 2px solid #ffffff;
+  box-shadow: inset 0px 3.375px 4.5px rgba(0, 0, 0, 0.16);
+  border-radius: 100px;
+  cursor: pointer;
+  border: 2px solid #ffffff;
+}
+
+.progress-wrapper .progress {
+  background: linear-gradient(
+    90deg,
+    #4b4b4b 1.41%,
+    #000000 66.17%,
+    #4425f5 100.1%
+  );
+  border-radius: 100px;
+  height: 100%;
+  position: relative;
+  width: 20%;
+  transition: all 0.01s ease-in;
+}
+
+.progress-wrapper .progress .pointer {
+  position: absolute;
+  right: 0px;
+  top: -50%;
+  transform: translateY(10%);
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.24);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.progress-wrapper .progress .pointer::before {
+  content: "";
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #4425f5;
+}
+
+.progress-wrapper .progress .pointer .toast {
+  width: 140px;
+  height: 32px;
+  background: #ffffff;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.05);
+  border-radius: 4px;
+  position: absolute;
+  top: -34px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: none;
+}
