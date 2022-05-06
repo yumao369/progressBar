@@ -1,0 +1,25 @@
+.base {
+  position: relative;
+  width: 500px;
+  height: 30px;
+  background-color: aqua;
+  z-index: 1;
+}
+
+.handle {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  background-color: red;
+  top: 10px;
+  z-index: 100;
+}
+
+.bar {
+  position: absolute;
+  height: 10px;
+  background-color: gray;
+  top: 10px;
+  z-index: 50px;
+}
