@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { fromEvent, filter, take, tap, pluck, map, distinctUntilChanged, takeUntil, merge } from 'rxjs'
+import Handle from "./handle";
 import styles from "./index.module.css"
 
 export default function RxjsTest1 () {
@@ -16,13 +17,18 @@ export default function RxjsTest1 () {
   let value1 = 0
   const [handleStylse, setHandleStylse] = useState({})
   const [barStylse, setBarStylse] = useState({})
+  const [offset, setOffset] = useState(0)
 
   useEffect(() => {
     createObservables()
     subscribeDrag(['start'])
-    console.log('value', value1)
+    console.log('valuerender', value1)
     return () => { unsubscribeDrag() }
   })
+
+  useEffect(() => {
+    setOffset(value1)
+  }, [value1])
 
   const sliderEvent = (e) => {
     e.stopPropagation();
@@ -117,6 +123,7 @@ export default function RxjsTest1 () {
     if (isDragging) {
       console.log('value', value)
       value1 = value
+      console.log('value1', value1)
     }
   }
   const onDragEnd = () => {
@@ -182,7 +189,10 @@ export default function RxjsTest1 () {
 
 
   return <div className={styles.base} ref={divRef}>
-    <div className={styles.handle} style={handleStylse}></div>
+    {
+      console.log('inittttttttt,value1', value1)
+    }
+    <Handle value={value1} />
     <div className={styles.bar} style={barStylse}></div>
   </div>
 }
